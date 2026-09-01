@@ -4,13 +4,9 @@
   "private": true,
   "description": "Full-stack Apex Auto Care service packages, cost estimator & booking platform.",
   "scripts": {
-    "dev": "vercel dev",
     "test": "node test-api.js"
   },
   "dependencies": {
     "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "vercel": "^37.0.0"
   }
 }
