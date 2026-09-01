@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Auto Care | Precision Auto Care & Ceramic Detailing</title>
+  <meta name="description" content="ASE-certified mechanics and ceramic detailing specialists. Fast turnaround, warrantied work, transparent pricing." />
+
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Rajdhani', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            ink: '#0b1120',
+            panel: '#111a2e',
+            panel2: '#16213a',
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #0b1120; }
+    .font-display { letter-spacing: 0.02em; }
+    .tread-divider {
+      height: 6px;
+      background-image: repeating-linear-gradient(115deg, #f59e0b 0 14px, transparent 14px 28px);
+      opacity: 0.45;
+    }
+    .glow-amber:hover {
+      box-shadow: 0 0 0 1px rgba(245,158,11,0.4), 0 20px 40px -12px rgba(245,158,11,0.25);
+    }
+    .num-dial { font-variant-numeric: tabular-nums; }
+    ::selection { background: #f59e0b; color: #0b1120; }
+    input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible {
+      outline: 2px solid #f59e0b;
+      outline-offset: 2px;
+    }
+    .modal-backdrop {
+      background-color: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .pulse-live { animation: pulse-subtle 2s infinite ease-in-out; }
+  </style>
+</head>
+
+<body class="bg-ink text-slate-200 font-body antialiased min-h-screen flex flex-col">
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-ink/90 backdrop-blur border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+
+        <!-- Logo -->
+        <a href="#top" class="flex items-center gap-2.5 shrink-0 group">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-amber-500 text-ink group-hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20">
+            <i data-lucide="gauge-circle" class="w-6 h-6"></i>
+          </span>
+          <span class="font-display text-2xl font-700 text-white tracking-wide">APEX <span class="text-amber-500">AUTO CARE</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-slate-300">
+          <a href="#services" class="hover:text-amber-400 transition-colors">Services</a>
+          <a href="#packages" class="hover:text-amber-400 transition-colors">Packages</a>
+          <a href="#estimator" class="hover:text-amber-400 transition-colors">Cost Estimator</a>
+          <a href="#why-us" class="hover:text-amber-400 transition-colors">Why Apex</a>
+          <a href="#reviews" class="hover:text-amber-400 transition-colors">Reviews</a>
+          <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Desktop CTAs -->
+        <div class="hidden lg:flex items-center gap-3">
+          <div id="systemHealthBadge" class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span>
+            <span>API Online</span>
+          </div>
+          <a href="tel:+15551234911" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-md border border-red-500/40 text-red-400 hover:bg-red-500/10 transition-colors text-sm font-semibold">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            (555) 123-4911
+          </a>
+          <a href="#booking" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-amber-500 text-ink font-bold text-sm hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/10">
+            Book Service
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-white/10 text-slate-200">
+          <i data-lucide="menu" class="w-5 h-5" id="menuIconOpen"></i>
+          <i data-lucide="x" class="w-5 h-5 hidden" id="menuIconClose"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden overflow-hidden max-h-0 opacity-0 border-t border-white/5 bg-ink transition-all duration-300 ease-in-out">
+      <nav class="px-4 py-4 flex flex-col gap-1 text-slate-300 font-medium">
+        <a href="#services" class="py-2.5 border-b border-white/5 hover:text-amber-400">Services</a>
+        <a href="#packages" class="py-2.5 border-b border-white/5 hover:text-amber-400">Packages</a>
+        <a href="#estimator" class="py-2.5 border-b border-white/5 hover:text-amber-400">Cost Estimator</a>
+        <a href="#why-us" class="py-2.5 border-b border-white/5 hover:text-amber-400">Why Apex</a>
+        <a href="#reviews" class="py-2.5 border-b border-white/5 hover:text-amber-400">Reviews</a>
+        <a href="#contact" class="py-2.5 hover:text-amber-400">Contact</a>
+        <div class="flex flex-col gap-2 mt-4 pt-3 border-t border-white/10">
+          <a href="tel:+15551234911" class="text-center px-4 py-2.5 rounded-md border border-red-500/40 text-red-400 font-semibold flex items-center justify-center gap-2">
+            <i data-lucide="phone-call" class="w-4 h-4"></i> Call (555) 123-4911
+          </a>
+          <a href="#booking" class="text-center px-4 py-2.5 rounded-md bg-amber-500 text-ink font-bold">Book Service</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="flex-1">
+
+    <!-- ============ HERO ============ -->
+    <section class="relative pt-28 lg:pt-36 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_20%,rgba(245,158,11,0.12),transparent_50%),radial-gradient(circle_at_85%_0%,rgba(220,38,38,0.10),transparent_45%)]"></div>
+      <div class="absolute -right-24 top-10 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl -z-10"></div>
+
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-14 items-start">
+        <div>
+          <p class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-display font-semibold text-xs sm:text-sm tracking-wide mb-5">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            ASE-Certified Master Technicians &bull; 12-Month Warranty
+          </p>
+          <h1 class="font-display font-700 text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-6">
+            Precision Auto Care<br class="hidden sm:block" /> &amp; Ceramic Detailing
+          </h1>
+          <p class="text-base sm:text-lg text-slate-400 max-w-xl mb-8 leading-relaxed">
+            From computerized engine diagnostics and brake servicing to multi-stage paint correction and ceramic coatings &mdash; warrantied work, transparent pricing, and same-day turnaround.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mb-10">
+            <a href="#booking" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-amber-500 text-ink font-bold hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20">
+              <i data-lucide="calendar-check" class="w-5 h-5"></i>
+              Book Service
+            </a>
+            <a href="#estimator" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/15 text-white font-semibold hover:border-amber-400 hover:text-amber-400 transition-colors bg-white/5">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+              Estimate My Cost
+            </a>
+            <a href="#packages" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-amber-500/30 text-amber-400 font-semibold hover:bg-amber-500/10 transition-colors">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+              View Packages
+            </a>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="grid grid-cols-3 gap-4 max-w-lg border-t border-white/10 pt-6">
+            <div>
+              <p class="font-display num-dial text-2xl sm:text-3xl font-700 text-white">5,000+</p>
+              <p class="text-xs text-slate-400 mt-1">Vehicles Serviced</p>
+            </div>
+            <div>
+              <p class="font-display num-dial text-2xl sm:text-3xl font-700 text-white">100%</p>
+              <p class="text-xs text-slate-400 mt-1">Warrantied Work</p>
+            </div>
+            <div>
+              <p class="font-display num-dial text-2xl sm:text-3xl font-700 text-white flex items-center gap-1">4.9<i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i></p>
+              <p class="text-xs text-slate-400 mt-1">Google Reviews</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Appointment Quick Quote widget -->
+        <div id="booking" class="bg-panel border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/50 scroll-mt-24">
+          <div class="flex items-center justify-between mb-1">
+            <h2 class="font-display text-2xl font-700 text-white">Request Appointment</h2>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Fast Quote</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 mb-6">Pick your service &amp; schedule &mdash; we confirm immediately by phone.</p>
+
+          <form id="appointmentForm" class="space-y-4" onsubmit="handleAppointmentSubmit(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="fullName" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Full Name</label>
+                <input id="fullName" name="fullName" type="text" required placeholder="e.g. Jane Rivera"
+                  class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:border-amber-500" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Email</label>
+                <input id="email" name="email" type="email" required placeholder="e.g. jane@example.com"
+                  class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:border-amber-500" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="sm:col-span-2">
+                <label for="carModel" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Car Make &amp; Model</label>
+                <input id="carModel" name="carModel" type="text" required placeholder="e.g. Honda Civic"
+                  class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:border-amber-500" />
+              </div>
+              <div>
+                <label for="carYear" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Year</label>
+                <input id="carYear" name="carYear" type="number" min="1980" max="2027" value="2022" required
+                  class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2.5 text-white focus:border-amber-500" />
+              </div>
+            </div>
+
+            <div>
+              <label for="serviceNeeded" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Service Needed</label>
+              <select id="serviceNeeded" name="serviceNeeded" required
+                class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2.5 text-white focus:border-amber-500">
+                <option value="">Loading services catalog...</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="prefDate" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Preferred Date</label>
+                <input id="prefDate" name="prefDate" type="date" required
+                  class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2.5 text-white focus:border-amber-500" />
+              </div>
+              <div>
+                <label for="phone" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Phone Number</label>
+                <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567"
+                  class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2.5 text-white placeholder:text-slate-500 focus:border-amber-500" />
+              </div>
+            </div>
+
+            <div>
+              <label for="notes" class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Notes or Symptoms (Optional)</label>
+              <input id="notes" name="notes" type="text" placeholder="e.g. Squeaking noise when braking at low speed"
+                class="w-full rounded-lg bg-panel2 border border-white/10 px-3.5 py-2 text-sm text-white placeholder:text-slate-500 focus:border-amber-500" />
+            </div>
+
+            <button type="submit" id="appointmentSubmitBtn" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-amber-500 text-ink font-bold hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20">
+              <span>Submit Appointment Request</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <p class="text-xs text-slate-400 text-center">No upfront payment &bull; Free visual safety check included with every visit.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="tread-divider"></div>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 scroll-mt-16">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">Master Workshop Catalog</span>
+            <h2 class="font-display font-700 text-3xl sm:text-4xl text-white">Comprehensive Auto Services</h2>
+            <p class="text-slate-400 mt-2 max-w-xl">Every job is logged digitally, tested, and backed by our warranty on parts and labor.</p>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-slate-400 bg-panel px-3 py-2 rounded-lg border border-white/10">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Live catalog synced via <code class="text-amber-300 font-mono">/api/services</code></span>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGrid">
+          <!-- Dynamically populated from /api/services -->
+          <div class="col-span-full py-12 text-center text-slate-400">
+            <i data-lucide="loader" class="w-6 h-6 animate-spin mx-auto mb-2 text-amber-400"></i>
+            <p>Loading available services...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PACKAGES / PRICING ============ -->
+    <section id="packages" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-panel/40 border-y border-white/5 scroll-mt-16 relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-3xl mb-14">
+          <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">All-Inclusive Bundles</span>
+          <h2 class="font-display font-700 text-3xl sm:text-4xl text-white mb-3">Service &amp; Detailing Packages</h2>
+          <p class="text-slate-400">Save up to 25% by bundling scheduled maintenance and specialized detailing together. Real-time booking with tracking codes.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 items-stretch" id="packagesGrid">
+          <!-- Dynamically populated from /api/packages -->
+          <div class="col-span-full py-12 text-center text-slate-400">
+            <i data-lucide="loader" class="w-6 h-6 animate-spin mx-auto mb-2 text-amber-400"></i>
+            <p>Loading service packages...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COST ESTIMATOR ============ -->
+    <section id="estimator" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 scroll-mt-16">
+      <div class="max-w-5xl mx-auto">
+        <div class="max-w-2xl mb-10">
+          <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">Instant Pricing Engine</span>
+          <h2 class="font-display font-700 text-3xl sm:text-4xl text-white mb-3">Real-Time Cost Estimator</h2>
+          <p class="text-slate-400">Select your vehicle category and needed services. Backend calculates parts, labor hours, vehicle multiplier, and sales tax in real time via <code class="text-amber-300 font-mono">/api/estimate-cost</code>.</p>
+        </div>
+
+        <div class="bg-panel border border-white/10 rounded-2xl p-6 sm:p-10 grid lg:grid-cols-[1fr_340px] gap-8 shadow-2xl">
+          <div>
+            <p class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">1. Select Vehicle Type</p>
+            <div class="grid grid-cols-3 gap-3 mb-8" id="vehicleTypeGroup" role="radiogroup">
+              <button type="button" data-vehicle="sedan" class="vehicle-btn text-sm font-semibold py-3 px-2 rounded-lg border border-amber-500 text-amber-400 bg-amber-500/10 flex flex-col items-center gap-1 transition-all">
+                <i data-lucide="car" class="w-4 h-4"></i>
+                <span>Sedan (1.0x)</span>
+              </button>
+              <button type="button" data-vehicle="suv" class="vehicle-btn text-sm font-semibold py-3 px-2 rounded-lg border border-white/15 text-slate-300 hover:border-amber-400/60 flex flex-col items-center gap-1 transition-all">
+                <i data-lucide="truck" class="w-4 h-4"></i>
+                <span>SUV (1.25x)</span>
+              </button>
+              <button type="button" data-vehicle="truck" class="vehicle-btn text-sm font-semibold py-3 px-2 rounded-lg border border-white/15 text-slate-300 hover:border-amber-400/60 flex flex-col items-center gap-1 transition-all">
+                <i data-lucide="container" class="w-4 h-4"></i>
+                <span>Truck (1.4x)</span>
+              </button>
+            </div>
+
+            <p class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">2. Select Services</p>
+            <div class="space-y-2.5" id="estimatorChecklist">
+              <!-- Dynamically populated checkboxes from SERVICES -->
+              <p class="text-sm text-slate-500">Loading checklist...</p>
+            </div>
+          </div>
+
+          <!-- Breakdown Summary Card -->
+          <div class="bg-panel2 border border-white/10 rounded-xl p-6 flex flex-col justify-between h-full">
+            <div>
+              <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold mb-3">Estimated Quote</p>
+              <div class="border-b border-white/10 pb-4 mb-4">
+                <p class="font-display text-5xl font-700 text-amber-400 mb-1 num-dial" id="estimatorTotal">$0</p>
+                <p class="text-xs text-slate-400" id="estimatorCount">0 services selected</p>
+              </div>
+
+              <!-- Itemized breakdown details -->
+              <div class="space-y-2 text-xs text-slate-300 mb-6" id="estimatorBreakdown">
+                <div class="flex justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-400">Parts Subtotal</span>
+                  <span id="estParts">$0.00</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-400">Labor Subtotal</span>
+                  <span id="estLabor">$0.00</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-400">Estimated Tax (8%)</span>
+                  <span id="estTax">$0.00</span>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" onclick="applyEstimateToBooking()" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-amber-500 text-ink font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/10">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              Book This Estimate
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tread-divider"></div>
+
+    <!-- ============ WHY US ============ -->
+    <section id="why-us" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 scroll-mt-16">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">The Apex Standard</span>
+          <h2 class="font-display font-700 text-3xl sm:text-4xl text-white mb-5">Why Drivers Choose Apex Auto Care</h2>
+          <p class="text-slate-400 mb-8 leading-relaxed max-w-lg">
+            We built this shop on complete diagnostic honesty, warrantied craftsmanship, and respecting your busy schedule.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 shrink-0 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-base mb-1">12-Month / 12,000-Mile Warranty</h3>
+                <p class="text-sm text-slate-400">Parts and labor covered nationwide. If anything isn't right, we fix it with zero hassle.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="w-12 h-12 shrink-0 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+                <i data-lucide="timer" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-base mb-1">Same-Day Service Turnaround</h3>
+                <p class="text-sm text-slate-400">Over 90% of maintenance and brake jobs are completed and test-driven before 5:00 PM.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="w-12 h-12 shrink-0 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+                <i data-lucide="award" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-base mb-1">ASE Master Certified Technicians</h3>
+                <p class="text-sm text-slate-400">Advanced computerized scan tools for European, Japanese, Domestic, and EV/Hybrid models.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="w-12 h-12 shrink-0 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+                <i data-lucide="receipt" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-base mb-1">100% Upfront Transparent Quotes</h3>
+                <p class="text-sm text-slate-400">You review and approve the exact itemized price before any wrench turns.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Before / After transformation showcase -->
+        <div class="bg-panel border border-white/10 rounded-2xl p-6 sm:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="font-display text-xl font-700 text-white">Detailing Transformations</h3>
+            <span class="text-xs text-amber-400 font-semibold px-2.5 py-1 rounded bg-amber-500/10 border border-amber-500/20">Ceramic 9H Pro</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-panel2 border border-white/5 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                  <i data-lucide="sparkle" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Multi-Stage Paint Correction</p>
+                  <p class="text-xs text-slate-400">Removes 90%+ swirl marks, oxidation, and micro-scratches</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-amber-400">Mirrored</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-panel2 border border-white/5 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                  <i data-lucide="droplets" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Hydrophobic Nano Barrier</p>
+                  <p class="text-xs text-slate-400">3-5 Year UV protection and water-sheeting properties</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-emerald-400">Protected</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-panel2 border border-white/5 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                  <i data-lucide="wind" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Interior High-Pressure Steam</p>
+                  <p class="text-xs text-slate-400">Eliminates 99.9% bacteria, allergens, and leather grime</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-sky-400">Sanitized</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section id="reviews" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-panel/30 border-t border-white/5 scroll-mt-16">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">Verified Customers</span>
+          <h2 class="font-display font-700 text-3xl sm:text-4xl text-white mb-3">Loved by Local Drivers</h2>
+          <p class="text-slate-400">Over 5,000 satisfied clients trust Apex with their daily commuters and performance cars.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-panel border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex gap-1 text-amber-400 mb-4">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+              <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                "Booked the Full Tune-Up package on the website. Got a confirmation code right away and they called within 10 minutes. Car runs smoother than when I bought it!"
+              </p>
+            </div>
+            <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+              <div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">MR</div>
+              <div>
+                <p class="text-sm font-semibold text-white">Marcus Ramirez</p>
+                <p class="text-xs text-slate-500">BMW M3 &bull; Full Tune-Up</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-panel border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex gap-1 text-amber-400 mb-4">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+              <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                "The instant cost estimator gave me an accurate price down to the dollar including tax. No surprise upselling when I picked up my SUV. Super refreshing."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+              <div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">SK</div>
+              <div>
+                <p class="text-sm font-semibold text-white">Sarah Jenkins</p>
+                <p class="text-xs text-slate-500">Audi Q7 &bull; Brake Service &amp; Diagnostics</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-panel border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex gap-1 text-amber-400 mb-4">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+              <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                "Showroom Ceramic Detailing package brought my black Porsche finish back to life. Water literally rolls right off. Unmatched attention to detail."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+              <div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">DL</div>
+              <div>
+                <p class="text-sm font-semibold text-white">David Liu</p>
+                <p class="text-xs text-slate-500">Porsche 911 &bull; Showroom Ceramic</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / LOCATION ============ -->
+    <section id="contact" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 scroll-mt-16">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+        <div class="bg-panel border border-white/10 rounded-2xl p-6 sm:p-8">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-xl font-700 text-white mb-2">Workshop Location</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            1420 Downtown Auto District<br />
+            Suite 100, Motor City, CA 90210
+          </p>
+          <p class="text-xs text-amber-400 mt-4">Free customer parking &amp; secure key drop box.</p>
+        </div>
+
+        <div class="bg-panel border border-white/10 rounded-2xl p-6 sm:p-8">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+            <i data-lucide="clock" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-xl font-700 text-white mb-2">Operating Hours</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Monday &ndash; Friday: 7:30 AM &ndash; 6:00 PM<br />
+            Saturday: 8:00 AM &ndash; 4:00 PM<br />
+            Sunday: Closed (Emergency Towing Available)
+          </p>
+        </div>
+
+        <div class="bg-panel border border-white/10 rounded-2xl p-6 sm:p-8">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-xl font-700 text-white mb-2">Direct Contact</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Direct Line: (555) 123-4911<br />
+            Service Desk: service@apexautocare.com<br />
+            24/7 Emergency Line available.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-panel border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500 text-ink">
+          <i data-lucide="gauge-circle" class="w-5 h-5"></i>
+        </span>
+        <span class="font-display text-xl font-700 text-white">APEX <span class="text-amber-500">AUTO CARE</span></span>
+      </div>
+
+      <p class="text-xs text-slate-500 text-center md:text-left">
+        &copy; <span id="currentYear">2026</span> Apex Auto Care Systems Inc. All rights reserved. Serverless full-stack on Vercel.
+      </p>
+
+      <div class="flex items-center gap-6 text-xs text-slate-400 font-medium">
+        <a href="#services" class="hover:text-amber-400">Services</a>
+        <a href="#packages" class="hover:text-amber-400">Packages</a>
+        <a href="#estimator" class="hover:text-amber-400">Estimator</a>
+        <a href="#booking" class="hover:text-amber-400">Book Appointment</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ PACKAGE BOOKING MODAL ============ -->
+  <div id="packageModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="relative bg-panel border border-white/15 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl my-8">
+      <button type="button" onclick="closePackageModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="mb-6">
+        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 uppercase tracking-wider">Service Package Booking</span>
+        <h3 class="font-display text-2xl sm:text-3xl font-700 text-white mt-2" id="modalPackageName">Package Name</h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1" id="modalPackageTagline">Tagline</p>
+      </div>
+
+      <!-- Price summary pill -->
+      <div class="bg-panel2 rounded-xl p-4 border border-white/10 mb-6 grid grid-cols-3 gap-2 text-center">
+        <div>
+          <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Base Price</p>
+          <p class="font-display text-lg font-700 text-white" id="modalBasePrice">$0</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Tax (8%)</p>
+          <p class="font-display text-lg font-700 text-slate-300" id="modalTax">$0</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-wider text-amber-400 font-semibold">Total Price</p>
+          <p class="font-display text-lg font-700 text-amber-400" id="modalTotalPrice">$0</p>
+        </div>
+      </div>
+
+      <form id="packageBookingForm" onsubmit="handlePackageBookingSubmit(event)" class="space-y-4">
+        <input type="hidden" id="modalPackageId" name="packageId" value="" />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name</label>
+            <input type="text" id="pkgCustomerName" name="customerName" required placeholder="e.g. Alex Morgan"
+              class="w-full rounded-lg bg-ink border border-white/10 px-3 py-2 text-white placeholder:text-slate-600 focus:border-amber-500 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Email</label>
+            <input type="email" id="pkgEmail" name="email" required placeholder="e.g. alex@example.com"
+              class="w-full rounded-lg bg-ink border border-white/10 px-3 py-2 text-white placeholder:text-slate-600 focus:border-amber-500 text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Vehicle Make</label>
+            <input type="text" id="pkgCarMake" name="carMake" required placeholder="e.g. Toyota"
+              class="w-full rounded-lg bg-ink border border-white/10 px-3 py-2 text-white placeholder:text-slate-600 focus:border-amber-500 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Vehicle Model</label>
+            <input type="text" id="pkgCarModel" name="carModel" required placeholder="e.g. Camry"
+              class="w-full rounded-lg bg-ink border border-white/10 px-3 py-2 text-white placeholder:text-slate-600 focus:border-amber-500 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Year</label>
+            <input type="number" id="pkgYear" name="year" min="1980" max="2027" value="2021" required
+              class="w-full rounded-lg bg-ink border border-white/10 px-3 py-2 text-white focus:border-amber-500 text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Phone Number</label>
+            <input type="tel" id="pkgPhone" name="phone" required placeholder="(555) 123-4567"
+              class="w-full rounded-lg bg-ink border border-white/10 px-3 py-2 text-white placeholder:text-slate-600 focus:border-amber-500 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Preferred Date &amp; Time</label>
+            <input type="datetime-local" id="pkgScheduledDate" name="scheduledDate" required
+              class="w-full rounded-lg bg-ink border border-white/10 px-3 py-2 text-white focus:border-amber-500 text-sm" />
+          </div>
+        </div>
+
+        <div id="packageBookingError" class="hidden text-xs text-red-400 bg-red-500/10 border border-red-500/30 p-3 rounded-lg"></div>
+
+        <button type="submit" id="pkgSubmitBtn" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-amber-500 text-ink font-bold hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20 text-sm">
+          <span>Confirm Package Booking</span>
+          <i data-lucide="check" class="w-4 h-4"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ SUCCESS RECEIPT MODAL ============ -->
+  <div id="receiptModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="relative bg-panel border border-emerald-500/40 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl my-8">
+      <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/30">
+        <i data-lucide="check-circle-2" class="w-7 h-7"></i>
+      </div>
+
+      <h3 class="font-display text-2xl font-700 text-white text-center mb-1" id="receiptTitle">Booking Confirmed!</h3>
+      <p class="text-xs text-slate-400 text-center mb-6" id="receiptSubtitle">Your service appointment has been reserved.</p>
+
+      <div class="bg-panel2 rounded-xl p-5 border border-white/10 mb-6 space-y-3 text-xs">
+        <div class="flex justify-between items-center pb-2 border-b border-white/10">
+          <span class="text-slate-400 font-semibold uppercase tracking-wider">Tracking Reference</span>
+          <span class="font-mono text-sm font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/30" id="receiptRef">PKG-2026-XXXX</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span class="text-slate-400">Service / Package:</span>
+          <span class="text-white font-semibold" id="receiptService">Full Tune-Up</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span class="text-slate-400">Vehicle:</span>
+          <span class="text-white" id="receiptVehicle">Honda Civic (2021)</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span class="text-slate-400">Scheduled Date:</span>
+          <span class="text-white" id="receiptDate">2026-09-15</span>
+        </div>
+        <div class="flex justify-between py-1 border-t border-white/10 pt-2" id="receiptPriceRow">
+          <span class="text-slate-400 font-semibold">Total with Tax:</span>
+          <span class="text-amber-400 font-bold text-sm" id="receiptTotal">$178.20</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <button type="button" onclick="closeReceiptModal()" class="w-full py-3 rounded-lg bg-amber-500 text-ink font-bold hover:bg-amber-400 transition-colors text-sm">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // ---------- Global State & API Configuration ----------
+    const API_BASE = '/api';
+    let SERVICES = [];
+    let PACKAGES = [];
+    let selectedVehicleType = 'sedan';
+    let estimateDebounceTimer;
+
+    // Icons map for services
+    const SERVICE_ICONS = {
+      oil: 'droplet',
+      brakes: 'disc',
+      diagnostics: 'cpu',
+      ceramic: 'sparkles',
+      ac: 'wind',
+      alignment: 'move-horizontal',
+    };
+
+    // Initialize UI on load
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // Set default minimum date for booking to today
+      const todayIso = new Date().toISOString().split('T')[0];
+      document.getElementById('prefDate').min = todayIso;
+      document.getElementById('prefDate').value = todayIso;
+
+      // Set default datetime for package modal
+      const now = new Date();
+      now.setDate(now.getDate() + 1);
+      now.setHours(9, 0, 0, 0);
+      const tomorrowFormatted = now.toISOString().slice(0, 16);
+      document.getElementById('pkgScheduledDate').min = todayIso + 'T08:00';
+      document.getElementById('pkgScheduledDate').value = tomorrowFormatted;
+
+      // Mobile menu listeners
+      setupMobileMenu();
+
+      // Vehicle type switcher
+      setupVehicleSelector();
+
+      // Health check & data fetching
+      checkSystemHealth();
+      loadServices();
+      loadPackages();
+    });
+
+    // ---------- Mobile Menu Setup ----------
+    function setupMobileMenu() {
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+      let isOpen = false;
+
+      menuBtn.addEventListener('click', () => {
+        isOpen = !isOpen;
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+          mobileMenu.style.opacity = '1';
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          mobileMenu.style.maxHeight = '0px';
+          mobileMenu.style.opacity = '0';
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          isOpen = false;
+          mobileMenu.style.maxHeight = '0px';
+          mobileMenu.style.opacity = '0';
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // ---------- System Health Check ----------
+    async function checkSystemHealth() {
+      const badge = document.getElementById('systemHealthBadge');
+      try {
+        const res = await fetch(`${API_BASE}/health`);
+        if (res.ok) {
+          badge.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold";
+          badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span><span>API Online</span>';
+        } else {
+          throw new Error('Unhealthy status');
+        }
+      } catch (err) {
+        badge.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold";
+        badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400"></span><span>API Standby</span>';
+      }
+    }
+
+    // ---------- Fetch Services: GET /api/services ----------
+    async function loadServices() {
+      const grid = document.getElementById('servicesGrid');
+      const dropdown = document.getElementById('serviceNeeded');
+      const checklist = document.getElementById('estimatorChecklist');
+
+      try {
+        const res = await fetch(`${API_BASE}/services`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const data = await res.json();
+        SERVICES = data.data || [];
+
+        // Render Services Grid
+        grid.innerHTML = SERVICES.map(s => `
+          <div class="group bg-panel border border-white/10 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-1 hover:border-amber-500/50 glow-amber flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-ink transition-colors">
+                  <i data-lucide="${SERVICE_ICONS[s.id] || 'wrench'}" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 px-2 py-0.5 rounded bg-panel2 border border-white/5">${s.category}</span>
+              </div>
+              <h3 class="text-white font-display text-xl font-700 mb-2">${s.name}</h3>
+              <p class="text-xs sm:text-sm text-slate-400 mb-6 leading-relaxed">${s.description}</p>
+            </div>
+            <div class="border-t border-white/10 pt-4 flex items-center justify-between">
+              <span class="text-xs text-slate-400 flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> ${s.estimatedTime}
+              </span>
+              <button onclick="quickSelectService('${s.id}')" class="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1">
+                From $${s.basePrice} <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        `).join('');
+
+        // Populate Booking Form Dropdown
+        dropdown.innerHTML = '<option value="">Select a service</option>' +
+          SERVICES.map(s => `<option value="${s.id}">${s.name} (from $${s.basePrice})</option>`).join('');
+
+        // Populate Estimator Checklist
+        checklist.innerHTML = SERVICES.map(s => `
+          <label class="flex items-center justify-between gap-3 px-4 py-3 rounded-lg border border-white/10 hover:border-amber-500/40 bg-panel2/60 cursor-pointer transition-colors">
+            <span class="flex items-center gap-3 text-sm text-slate-200">
+              <input type="checkbox" class="estimator-check w-4 h-4 rounded text-amber-500 accent-amber-500" data-service-id="${s.id}" />
+              ${s.name}
+            </span>
+            <span class="text-xs font-medium text-amber-400">from $${s.basePrice}</span>
+          </label>
+        `).join('');
+
+        // Re-run Lucide icons
+        lucide.createIcons();
+      } catch (err) {
+        console.error('Failed to load services:', err);
+        grid.innerHTML = `<div class="col-span-full p-6 text-center text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl">Unable to load services catalog. Please verify the API connection.</div>`;
+      }
+    }
+
+    // ---------- Fetch Packages: GET /api/packages ----------
+    async function loadPackages() {
+      const grid = document.getElementById('packagesGrid');
+      try {
+        const res = await fetch(`${API_BASE}/packages`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const data = await res.json();
+        PACKAGES = data.packages || [];
+
+        grid.innerHTML = PACKAGES.map(pkg => {
+          const isPopular = pkg.popular;
+          const includedFeatures = pkg.features.filter(f => f.included);
+          const otherFeatures = pkg.features.filter(f => !f.included).slice(0, 3);
+
+          return `
+            <div class="relative bg-panel border ${isPopular ? 'border-amber-500 shadow-2xl shadow-amber-500/10 lg:-translate-y-3' : 'border-white/10'} rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all">
+              ${isPopular ? `<span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-500 text-ink text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg">Most Popular</span>` : ''}
+
+              <div>
+                <div class="mb-4">
+                  <h3 class="font-display text-2xl font-700 text-white">${pkg.name}</h3>
+                  <p class="text-xs sm:text-sm text-slate-400 mt-1">${pkg.tagline}</p>
+                </div>
+
+                <div class="flex items-baseline gap-2 mb-6 border-b border-white/10 pb-5">
+                  <span class="font-display text-4xl font-700 text-white">$${pkg.discountPrice}</span>
+                  ${pkg.price > pkg.discountPrice ? `<span class="text-sm line-through text-slate-400">$${pkg.price}</span>` : ''}
+                  <span class="text-xs text-slate-400 ml-auto flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> ~${pkg.estimatedHours} hrs</span>
+                </div>
+
+                <p class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Included Services:</p>
+                <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+                  ${includedFeatures.map(f => `
+                    <li class="flex items-start gap-2.5">
+                      <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                      <span>${f.label}</span>
+                    </li>
+                  `).join('')}
+                  ${otherFeatures.map(f => `
+                    <li class="flex items-start gap-2.5 text-slate-600">
+                      <i data-lucide="x" class="w-4 h-4 text-slate-600 shrink-0 mt-0.5"></i>
+                      <span>${f.label}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+
+              <button onclick="openPackageModal('${pkg.id}')" class="w-full py-3.5 rounded-lg ${isPopular ? 'bg-amber-500 text-ink font-bold hover:bg-amber-400 shadow-lg shadow-amber-500/20' : 'border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-ink font-bold'} transition-all text-sm flex items-center justify-center gap-2">
+                <span>Book This Package</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          `;
+        }).join('');
+
+        lucide.createIcons();
+      } catch (err) {
+        console.error('Failed to load packages:', err);
+        grid.innerHTML = `<div class="col-span-full p-6 text-center text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl">Unable to load packages. Please refresh.</div>`;
+      }
+    }
+
+    // ---------- Quick Select Service into Form ----------
+    function quickSelectService(serviceId) {
+      const select = document.getElementById('serviceNeeded');
+      select.value = serviceId;
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ---------- Vehicle Type Selector Setup ----------
+    function setupVehicleSelector() {
+      const buttons = document.querySelectorAll('.vehicle-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => {
+            b.classList.remove('border-amber-500', 'text-amber-400', 'bg-amber-500/10');
+            b.classList.add('border-white/15', 'text-slate-300');
+          });
+          btn.classList.remove('border-white/15', 'text-slate-300');
+          btn.classList.add('border-amber-500', 'text-amber-400', 'bg-amber-500/10');
+          selectedVehicleType = btn.dataset.vehicle;
+          updateCostEstimate();
+        });
+      });
+
+      document.addEventListener('change', (e) => {
+        if (e.target.classList.contains('estimator-check')) {
+          updateCostEstimate();
+        }
+      });
+    }
+
+    // ---------- Cost Estimator: POST /api/estimate-cost ----------
+    async function updateCostEstimate() {
+      const checks = Array.from(document.querySelectorAll('.estimator-check:checked'));
+      const serviceIds = checks.map(c => c.dataset.serviceId);
+      const totalEl = document.getElementById('estimatorTotal');
+      const countEl = document.getElementById('estimatorCount');
+      const estParts = document.getElementById('estParts');
+      const estLabor = document.getElementById('estLabor');
+      const estTax = document.getElementById('estTax');
+
+      countEl.textContent = checks.length + (checks.length === 1 ? ' service selected' : ' services selected');
+
+      if (serviceIds.length === 0) {
+        totalEl.textContent = '$0';
+        estParts.textContent = '$0.00';
+        estLabor.textContent = '$0.00';
+        estTax.textContent = '$0.00';
+        return;
+      }
+
+      clearTimeout(estimateDebounceTimer);
+      estimateDebounceTimer = setTimeout(async () => {
+        try {
+          const res = await fetch(`${API_BASE}/estimate-cost`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              vehicleType: selectedVehicleType,
+              serviceIds,
+            }),
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.errors ? json.errors.join(', ') : 'Calculation failed');
+
+          totalEl.textContent = '$' + json.total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          
+          const partsSum = json.lineItems.reduce((acc, i) => acc + i.partsCost, 0);
+          const laborSum = json.lineItems.reduce((acc, i) => acc + i.laborCost, 0);
+          estParts.textContent = '$' + partsSum.toFixed(2);
+          estLabor.textContent = '$' + laborSum.toFixed(2);
+          estTax.textContent = '$' + json.tax.toFixed(2);
+        } catch (err) {
+          console.error('Estimate failed:', err);
+          totalEl.textContent = '—';
+        }
+      }, 120);
+    }
+
+    function applyEstimateToBooking() {
+      const checks = Array.from(document.querySelectorAll('.estimator-check:checked'));
+      if (checks.length > 0) {
+        const firstService = checks[0].dataset.serviceId;
+        const select = document.getElementById('serviceNeeded');
+        select.value = firstService;
+      }
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ---------- Hero Appointment Booking: POST /api/appointments ----------
+    async function handleAppointmentSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('appointmentSubmitBtn');
+      const formData = new FormData(form);
+
+      const rawModel = formData.get('carModel').trim();
+      const [make, ...modelParts] = rawModel.split(' ');
+
+      const payload = {
+        fullName: formData.get('fullName').trim(),
+        email: formData.get('email').trim(),
+        phone: formData.get('phone').trim(),
+        carMake: make || 'Vehicle',
+        carModel: modelParts.join(' ') || rawModel,
+        year: Number(formData.get('carYear')),
+        serviceId: formData.get('serviceNeeded'),
+        preferredDate: formData.get('prefDate'),
+        notes: formData.get('notes') ? formData.get('notes').trim() : undefined,
+      };
+
+      btn.disabled = true;
+      btn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Processing...`;
+      lucide.createIcons();
+
+      try {
+        const res = await fetch(`${API_BASE}/appointments`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+
+        if (!res.ok) {
+          const errMsg = json.errors ? json.errors.join('\n') : (json.error || 'Booking failed');
+          throw new Error(errMsg);
+        }
+
+        form.reset();
+        openReceiptModal({
+          title: 'Appointment Confirmed!',
+          subtitle: 'We have reserved your slot and will call shortly.',
+          reference: json.data.bookingId,
+          service: json.data.service.name,
+          vehicle: `${json.data.vehicle.year} ${json.data.vehicle.make} ${json.data.vehicle.model}`,
+          date: json.data.preferredDate,
+          total: `From $${json.data.service.basePrice}`,
+        });
+      } catch (err) {
+        alert('Booking error:\n' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<span>Submit Appointment Request</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
+        lucide.createIcons();
+      }
+    }
+
+    // ---------- Package Booking Modal Handlers: POST /api/packages/book ----------
+    function openPackageModal(packageId) {
+      const pkg = PACKAGES.find(p => p.id === packageId);
+      if (!pkg) return;
+
+      document.getElementById('modalPackageId').value = pkg.id;
+      document.getElementById('modalPackageName').textContent = pkg.name;
+      document.getElementById('modalPackageTagline').textContent = pkg.tagline;
+
+      const tax = Math.round(pkg.discountPrice * 0.08 * 100) / 100;
+      const total = Math.round((pkg.discountPrice + tax) * 100) / 100;
+
+      document.getElementById('modalBasePrice').textContent = `$${pkg.discountPrice}`;
+      document.getElementById('modalTax').textContent = `$${tax.toFixed(2)}`;
+      document.getElementById('modalTotalPrice').textContent = `$${total.toFixed(2)}`;
+
+      document.getElementById('packageBookingError').classList.add('hidden');
+      document.getElementById('packageModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closePackageModal() {
+      document.getElementById('packageModal').classList.add('hidden');
+      document.getElementById('packageBookingForm').reset();
+    }
+
+    async function handlePackageBookingSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('pkgSubmitBtn');
+      const errBox = document.getElementById('packageBookingError');
+
+      const payload = {
+        packageId: document.getElementById('modalPackageId').value,
+        customerName: document.getElementById('pkgCustomerName').value.trim(),
+        email: document.getElementById('pkgEmail').value.trim(),
+        phone: document.getElementById('pkgPhone').value.trim(),
+        carMake: document.getElementById('pkgCarMake').value.trim(),
+        carModel: document.getElementById('pkgCarModel').value.trim(),
+        year: Number(document.getElementById('pkgYear').value),
+        scheduledDate: new Date(document.getElementById('pkgScheduledDate').value).toISOString(),
+      };
+
+      btn.disabled = true;
+      btn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Securing package booking...`;
+      errBox.classList.add('hidden');
+      lucide.createIcons();
+
+      try {
+        const res = await fetch(`${API_BASE}/packages/book`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+
+        if (!res.ok) {
+          const detailMsg = json.details ? json.details.map(d => d.message).join('<br/>') : (json.error || 'Booking failed');
+          errBox.innerHTML = detailMsg;
+          errBox.classList.remove('hidden');
+          return;
+        }
+
+        closePackageModal();
+        openReceiptModal({
+          title: 'Package Booking Confirmed!',
+          subtitle: `Tracking reference saved. An SMS confirmation will be sent to ${json.booking.customer.phone}.`,
+          reference: json.booking.reference,
+          service: json.booking.package.name,
+          vehicle: `${json.booking.vehicle.year} ${json.booking.vehicle.make} ${json.booking.vehicle.model}`,
+          date: new Date(json.booking.scheduledDate).toLocaleString(),
+          total: `$${json.booking.pricing.total.toFixed(2)} (Tax Included)`,
+        });
+      } catch (err) {
+        errBox.textContent = 'Connection error: ' + err.message;
+        errBox.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<span>Confirm Package Booking</span> <i data-lucide="check" class="w-4 h-4"></i>`;
+        lucide.createIcons();
+      }
+    }
+
+    // ---------- Receipt Confirmation Modal ----------
+    function openReceiptModal(info) {
+      document.getElementById('receiptTitle').textContent = info.title;
+      document.getElementById('receiptSubtitle').textContent = info.subtitle;
+      document.getElementById('receiptRef').textContent = info.reference;
+      document.getElementById('receiptService').textContent = info.service;
+      document.getElementById('receiptVehicle').textContent = info.vehicle;
+      document.getElementById('receiptDate').textContent = info.date;
+      document.getElementById('receiptTotal').textContent = info.total;
+
+      document.getElementById('receiptModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('receiptModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
