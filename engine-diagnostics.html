@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computerized Engine Diagnostics & Electrical | Apex Auto Care</title>
+  <meta name="description" content="Factory OEM engine diagnostics, check engine light diagnosis, sensor tests, and electrical troubleshooting." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Rajdhani', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            ink: '#080d18',
+            panel: '#0e1626',
+            panel2: '#131e33',
+            gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { background-color: #080d18; }
+    .font-display { letter-spacing: 0.02em; }
+    .luxury-card {
+      background: linear-gradient(145deg, rgba(14, 22, 38, 0.9) 0%, rgba(19, 30, 51, 0.6) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+
+<body class="bg-ink text-slate-200 font-body antialiased min-h-screen flex flex-col">
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="sticky top-0 inset-x-0 z-40 bg-ink/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
+      <a href="/" class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gold-500 text-ink">
+          <i data-lucide="gauge-circle" class="w-6 h-6"></i>
+        </span>
+        <span class="font-display text-2xl font-700 text-white">APEX <span class="text-gold-500">AUTO CARE</span></span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="/" class="hover:text-gold-400 transition-colors">Home</a>
+        <a href="/oil-change.html" class="hover:text-gold-400">Oil &amp; Filter</a>
+        <a href="/brake-service.html" class="hover:text-gold-400">Brakes</a>
+        <a href="/engine-diagnostics.html" class="text-gold-400 font-semibold">Diagnostics</a>
+        <a href="/ceramic-coating.html" class="hover:text-gold-400">Ceramic Detailing</a>
+        <a href="/ac-repair.html" class="hover:text-gold-400">A/C Repair</a>
+        <a href="/wheel-alignment.html" class="hover:text-gold-400">Laser Alignment</a>
+        <a href="/packages.html" class="hover:text-gold-400">Packages</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+15551234911" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-red-500/40 text-red-400 text-xs font-semibold">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> (555) 123-4911
+        </a>
+        <a href="#bookSection" class="px-5 py-2.5 rounded-lg bg-gold-500 text-ink font-bold text-xs hover:bg-gold-400 shadow-lg shadow-gold-500/20">
+          Book Diagnostics
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- ============ SERVICE HERO ============ -->
+    <section class="py-14 lg:py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-gradient-to-b from-panel to-ink">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-gold-500/20">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+            <span>Bosch &amp; Snap-on OEM Live Telemetry</span>
+          </div>
+
+          <h1 class="font-display font-700 text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
+            Computer Engine <span class="text-gold-400">Diagnostics</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+            Stop guessing check engine light codes. We connect dealership-level diagnostic scanners to analyze live ECU sensor telemetry, pinpoint exact component failures, and provide clear upfront repair options.
+          </p>
+
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="p-4 rounded-xl bg-panel border border-white/10">
+              <span class="text-xs text-slate-400 block mb-1">Starting At</span>
+              <span class="font-display text-2xl sm:text-3xl font-700 text-gold-400">$95</span>
+            </div>
+            <div class="p-4 rounded-xl bg-panel border border-white/10">
+              <span class="text-xs text-slate-400 block mb-1">Est. Duration</span>
+              <span class="font-display text-2xl sm:text-3xl font-700 text-white">1.0 Hr</span>
+            </div>
+            <div class="p-4 rounded-xl bg-panel border border-white/10">
+              <span class="text-xs text-slate-400 block mb-1">Accuracy</span>
+              <span class="font-display text-2xl sm:text-3xl font-700 text-white">100%</span>
+            </div>
+          </div>
+
+          <a href="#bookSection" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gold-500 text-ink font-bold text-sm hover:bg-gold-400 shadow-xl shadow-gold-500/25">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span>Book Diagnostic Scan</span>
+          </a>
+        </div>
+
+        <div class="luxury-card rounded-2xl p-8 border-gold-500/30">
+          <h3 class="font-display text-2xl font-700 text-white mb-4">Complete Diagnostic Protocol:</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-gold-400 shrink-0 mt-0.5"></i> Full OBD-II Engine Control Unit (ECU) Fault Code Scan &amp; Freeze Frame Retrieval</li>
+            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-gold-400 shrink-0 mt-0.5"></i> Real-Time Live Sensor Telemetry (Fuel Trim, O2 Sensors, MAF, Knock Sensors)</li>
+            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-gold-400 shrink-0 mt-0.5"></i> Ignition Coil, Spark Plug &amp; Cylinder Misfire Waveform Analysis</li>
+            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-gold-400 shrink-0 mt-0.5"></i> Alternator Charging &amp; 12V Battery Cold Cranking Amps (CCA) Test</li>
+            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-gold-400 shrink-0 mt-0.5"></i> EVAP Emission System Smoke &amp; Vacuum Leak Detection</li>
+            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-gold-400 shrink-0 mt-0.5"></i> Written Diagnostic Report with Itemized Transparent Solution Options</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DIRECT BOOKING FORM ============ -->
+    <section id="bookSection" class="py-16 px-4 sm:px-6 lg:px-8 bg-panel2/60 border-y border-white/10">
+      <div class="max-w-3xl mx-auto luxury-card rounded-2xl p-8 shadow-2xl">
+        <h2 class="font-display font-700 text-3xl text-white mb-2">Book Computerized Diagnostics</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mb-6">Receive same-day diagnostic results and clear recommendations.</p>
+
+        <form id="diagBookingForm" onsubmit="handleServiceBooking(event, 'diagnostics', 'Computer Engine Diagnostics')" class="space-y-4 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-semibold text-slate-300 mb-1">Full Name</label>
+              <input type="text" name="fullName" required placeholder="e.g. Tariq Latif"
+                class="w-full rounded-lg bg-panel border border-white/10 px-3.5 py-2.5 text-sm text-white focus:border-gold-500" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-300 mb-1">Phone Number</label>
+              <input type="tel" name="phone" required placeholder="(555) 000-0000"
+                class="w-full rounded-lg bg-panel border border-white/10 px-3.5 py-2.5 text-sm text-white focus:border-gold-500" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="sm:col-span-2">
+              <label class="block font-semibold text-slate-300 mb-1">Car Make &amp; Model</label>
+              <input type="text" name="carModel" required placeholder="e.g. Honda Accord or Ford F-150"
+                class="w-full rounded-lg bg-panel border border-white/10 px-3.5 py-2.5 text-sm text-white focus:border-gold-500" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-300 mb-1">Year</label>
+              <input type="number" name="year" min="1980" max="2027" value="2022" required
+                class="w-full rounded-lg bg-panel border border-white/10 px-3.5 py-2.5 text-sm text-white focus:border-gold-500" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-semibold text-slate-300 mb-1">Email</label>
+              <input type="email" name="email" required placeholder="email@domain.com"
+                class="w-full rounded-lg bg-panel border border-white/10 px-3.5 py-2.5 text-sm text-white focus:border-gold-500" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-300 mb-1">Preferred Date</label>
+              <input type="date" name="preferredDate" id="diagDate" required
+                class="w-full rounded-lg bg-panel border border-white/10 px-3.5 py-2.5 text-sm text-white focus:border-gold-500" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Observed Symptoms / Lights</label>
+            <input type="text" name="notes" placeholder="e.g. Flashing check engine light, rough idle, loss of power"
+              class="w-full rounded-lg bg-panel border border-white/10 px-3.5 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl bg-gold-500 text-ink font-bold text-sm hover:bg-gold-400 transition-all shadow-lg shadow-gold-500/20 mt-2">
+            Confirm Diagnostics Appointment
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-panel border-t border-white/10 py-10 px-4 text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>&copy; 2026 Apex Auto Care. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <a href="/packages.html" class="hover:text-gold-400">Packages</a>
+        <a href="/#contact" class="hover:text-gold-400">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const todayIso = new Date().toISOString().split('T')[0];
+      if (document.getElementById('diagDate')) {
+        document.getElementById('diagDate').min = todayIso;
+        document.getElementById('diagDate').value = todayIso;
+      }
+    });
+
+    async function handleServiceBooking(e, serviceId, serviceName) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const rawModel = formData.get('carModel').trim();
+      const [make, ...modelParts] = rawModel.split(' ');
+
+      const payload = {
+        fullName: formData.get('fullName').trim(),
+        email: formData.get('email').trim(),
+        phone: formData.get('phone').trim(),
+        carMake: make || 'Vehicle',
+        carModel: modelParts.join(' ') || rawModel,
+        year: Number(formData.get('year')),
+        serviceId: serviceId,
+        preferredDate: formData.get('preferredDate'),
+        notes: formData.get('notes') || undefined,
+      };
+
+      try {
+        const res = await fetch('/api/appointments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.errors ? json.errors.join(', ') : 'Booking failed');
+        alert(`Diagnostics Appointment Confirmed!\nBooking ID: ${json.data.bookingId}\nWe will call you shortly.`);
+        form.reset();
+      } catch (err) {
+        alert('Booking error: ' + err.message);
+      }
+    }
+  </script>
+</body>
+</html>

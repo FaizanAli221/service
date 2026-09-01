@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All-Inclusive Service & Detailing Packages | Apex Auto Care</title>
+  <meta name="description" content="Bundled maintenance and ceramic detailing packages with up to 25% savings. Includes 12-month warranty & instant tracking code." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Rajdhani', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            ink: '#080d18',
+            panel: '#0e1626',
+            panel2: '#131e33',
+            gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { background-color: #080d18; }
+    .font-display { letter-spacing: 0.02em; }
+    .luxury-card {
+      background: linear-gradient(145deg, rgba(14, 22, 38, 0.9) 0%, rgba(19, 30, 51, 0.6) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+    .luxury-card:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-3px);
+    }
+    .modal-backdrop {
+      background-color: rgba(8, 13, 24, 0.88);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body class="bg-ink text-slate-200 font-body antialiased min-h-screen flex flex-col">
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="sticky top-0 inset-x-0 z-40 bg-ink/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
+      <a href="/" class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gold-500 text-ink">
+          <i data-lucide="gauge-circle" class="w-6 h-6"></i>
+        </span>
+        <span class="font-display text-2xl font-700 text-white">APEX <span class="text-gold-500">AUTO CARE</span></span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="/" class="hover:text-gold-400 transition-colors">Home</a>
+        <a href="/oil-change.html" class="hover:text-gold-400">Oil &amp; Filter</a>
+        <a href="/brake-service.html" class="hover:text-gold-400">Brakes</a>
+        <a href="/engine-diagnostics.html" class="hover:text-gold-400">Diagnostics</a>
+        <a href="/ceramic-coating.html" class="hover:text-gold-400">Ceramic Detailing</a>
+        <a href="/ac-repair.html" class="hover:text-gold-400">A/C Repair</a>
+        <a href="/wheel-alignment.html" class="hover:text-gold-400">Laser Alignment</a>
+        <a href="/packages.html" class="text-gold-400 font-semibold">Packages</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+15551234911" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-red-500/40 text-red-400 text-xs font-semibold">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> (555) 123-4911
+        </a>
+        <a href="#packagesList" class="px-5 py-2.5 rounded-lg bg-gold-500 text-ink font-bold text-xs hover:bg-gold-400 shadow-lg shadow-gold-500/20">
+          Book Package
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- ============ HERO ============ -->
+    <section class="py-14 lg:py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-gradient-to-b from-panel to-ink text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-gold-500/20">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Value Bundles &bull; 12-Month Nationwide Warranty</span>
+        </div>
+        <h1 class="font-display font-700 text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
+          All-Inclusive <span class="text-gold-400">Service Packages</span>
+        </h1>
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Pre-packaged multi-point maintenance and studio ceramic detailing plans designed to maintain factory warranty standards and preserve vehicle resale value.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PACKAGES LIST ============ -->
+    <section id="packagesList" class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8 items-stretch" id="packagesGridContainer">
+
+        <!-- Package 1: Basic Care -->
+        <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="mb-4">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 py-0.5 rounded bg-panel2">Routine Upkeep</span>
+              <h3 class="font-display text-2xl font-700 text-white mt-2">Basic Care</h3>
+              <p class="text-xs text-slate-400 mt-1">The essentials, done right.</p>
+            </div>
+
+            <div class="flex items-baseline gap-2 mb-6 border-b border-white/10 pb-5">
+              <span class="font-display text-4xl font-700 text-white">$79</span>
+              <span class="text-sm line-through text-slate-400">$89</span>
+              <span class="text-xs text-slate-400 ml-auto flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold-400"></i> ~1.0 hr</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Full synthetic oil change</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Fluid top-up (coolant, brake, washer)</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Multi-point safety inspection</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Tire pressure &amp; tread check</li>
+            </ul>
+          </div>
+
+          <button onclick="openBookingModal('basic-care', 'Basic Care', 'The essentials, done right.', 79, 1.0)" class="w-full py-3.5 rounded-xl border border-gold-500/40 text-gold-400 hover:bg-gold-500 hover:text-ink font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <span>Book Basic Package</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Package 2: Full Tune-Up (Highlighted) -->
+        <div class="relative luxury-card rounded-2xl p-8 flex flex-col justify-between border-2 border-gold-500 lg:-translate-y-4 shadow-2xl shadow-gold-500/15">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold-500 text-ink text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg">Most Popular</span>
+
+          <div>
+            <div class="mb-4">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gold-400 px-2 py-0.5 rounded bg-gold-500/10">Full Front-to-Back</span>
+              <h3 class="font-display text-2xl font-700 text-white mt-2">Full Tune-Up</h3>
+              <p class="text-xs text-slate-400 mt-1">Our most-booked service, front to back.</p>
+            </div>
+
+            <div class="flex items-baseline gap-2 mb-6 border-b border-white/10 pb-5">
+              <span class="font-display text-4xl font-700 text-white">$165</span>
+              <span class="text-sm line-through text-slate-400">$189</span>
+              <span class="text-xs text-slate-400 ml-auto flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold-400"></i> ~2.5 hrs</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Full synthetic oil change</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Fluid top-up (coolant, brake, washer)</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Multi-point safety inspection</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Tire pressure &amp; tread check</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Brake pad &amp; rotor inspection</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Computerized engine diagnostics scan</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Air &amp; cabin filter replacement</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> A/C performance check</li>
+            </ul>
+          </div>
+
+          <button onclick="openBookingModal('full-tune-up', 'Full Tune-Up', 'Our most-booked service, front to back.', 165, 2.5)" class="w-full py-4 rounded-xl bg-gold-500 text-ink font-bold text-sm hover:bg-gold-400 transition-all shadow-lg shadow-gold-500/25 flex items-center justify-center gap-2 cursor-pointer">
+            <span>Book Tune-Up Package</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Package 3: Showroom Ceramic -->
+        <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="mb-4">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 px-2 py-0.5 rounded bg-amber-500/10">Master Detailing</span>
+              <h3 class="font-display text-2xl font-700 text-white mt-2">Showroom Ceramic Detailing</h3>
+              <p class="text-xs text-slate-400 mt-1">Paint correction and a coat that lasts years.</p>
+            </div>
+
+            <div class="flex items-baseline gap-2 mb-6 border-b border-white/10 pb-5">
+              <span class="font-display text-4xl font-700 text-white">$479</span>
+              <span class="text-sm line-through text-slate-400">$549</span>
+              <span class="text-xs text-slate-400 ml-auto flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold-400"></i> ~14 hrs</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Deep interior high-pressure steam clean</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> Exterior clay bar decontamination</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> 2-stage machine paint correction</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i> 9H Ceramic coating application &amp; cure</li>
+            </ul>
+          </div>
+
+          <button onclick="openBookingModal('showroom-ceramic', 'Showroom Ceramic Detailing', 'Paint correction and a coat that lasts years.', 479, 14.0)" class="w-full py-3.5 rounded-xl border border-gold-500/40 text-gold-400 hover:bg-gold-500 hover:text-ink font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <span>Book Ceramic Package</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ PACKAGE BOOKING MODAL ============ -->
+  <div id="pkgModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="luxury-card rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl my-8 relative">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="mb-5">
+        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-gold-500/10 text-gold-400 border border-gold-500/20 uppercase tracking-wider">Package Reservation</span>
+        <h3 class="font-display text-2xl sm:text-3xl font-700 text-white mt-2" id="modalName">Package Title</h3>
+        <p class="text-xs text-slate-400 mt-1" id="modalTag">Tagline</p>
+      </div>
+
+      <div class="bg-panel2 rounded-xl p-4 border border-white/10 mb-5 grid grid-cols-3 gap-2 text-center text-xs">
+        <div>
+          <p class="text-[10px] uppercase text-slate-400 font-semibold">Base Price</p>
+          <p class="font-display text-lg font-700 text-white" id="modalBase">$0</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase text-slate-400 font-semibold">Tax (8%)</p>
+          <p class="font-display text-lg font-700 text-slate-300" id="modalTax">$0</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase text-gold-400 font-semibold">Total Price</p>
+          <p class="font-display text-lg font-700 text-gold-400" id="modalTotal">$0</p>
+        </div>
+      </div>
+
+      <form id="packageForm" onsubmit="handlePackageSubmit(event)" class="space-y-3.5 text-xs">
+        <input type="hidden" id="pkgIdInput" name="packageId" value="" />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Full Name</label>
+            <input type="text" id="custName" name="customerName" required placeholder="e.g. Marcus Vance"
+              class="w-full rounded-lg bg-panel border border-white/10 px-3 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Email</label>
+            <input type="email" id="custEmail" name="email" required placeholder="name@email.com"
+              class="w-full rounded-lg bg-panel border border-white/10 px-3 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Make</label>
+            <input type="text" id="custMake" name="carMake" required placeholder="e.g. BMW"
+              class="w-full rounded-lg bg-panel border border-white/10 px-3 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Model</label>
+            <input type="text" id="custModel" name="carModel" required placeholder="e.g. M3"
+              class="w-full rounded-lg bg-panel border border-white/10 px-3 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Year</label>
+            <input type="number" id="custYear" name="year" min="1980" max="2027" value="2022" required
+              class="w-full rounded-lg bg-panel border border-white/10 px-3 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Phone Number</label>
+            <input type="tel" id="custPhone" name="phone" required placeholder="(555) 123-4567"
+              class="w-full rounded-lg bg-panel border border-white/10 px-3 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Preferred Appointment Date</label>
+            <input type="datetime-local" id="custDate" name="scheduledDate" required
+              class="w-full rounded-lg bg-panel border border-white/10 px-3 py-2.5 text-sm text-white focus:border-gold-500" />
+          </div>
+        </div>
+
+        <div id="modalError" class="hidden p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400"></div>
+
+        <button type="submit" id="submitPkgBtn" class="w-full py-4 rounded-xl bg-gold-500 text-ink font-bold text-sm hover:bg-gold-400 transition-all shadow-lg shadow-gold-500/20 mt-2 cursor-pointer">
+          Confirm Package Booking
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-panel border-t border-white/10 py-10 px-4 text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>&copy; 2026 Apex Auto Care. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <a href="/packages.html" class="hover:text-gold-400">Packages</a>
+        <a href="/#contact" class="hover:text-gold-400">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(9, 0, 0, 0);
+      document.getElementById('custDate').value = tomorrow.toISOString().slice(0, 16);
+    });
+
+    function openBookingModal(id, name, tag, price, hours) {
+      document.getElementById('pkgIdInput').value = id;
+      document.getElementById('modalName').textContent = name;
+      document.getElementById('modalTag').textContent = tag;
+
+      const tax = Math.round(price * 0.08 * 100) / 100;
+      const total = Math.round((price + tax) * 100) / 100;
+
+      document.getElementById('modalBase').textContent = '$' + price.toFixed(2);
+      document.getElementById('modalTax').textContent = '$' + tax.toFixed(2);
+      document.getElementById('modalTotal').textContent = '$' + total.toFixed(2);
+
+      document.getElementById('modalError').classList.add('hidden');
+      document.getElementById('pkgModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      document.getElementById('pkgModal').classList.add('hidden');
+    }
+
+    async function handlePackageSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitPkgBtn');
+      const errEl = document.getElementById('modalError');
+
+      const payload = {
+        packageId: document.getElementById('pkgIdInput').value,
+        customerName: document.getElementById('custName').value.trim(),
+        email: document.getElementById('custEmail').value.trim(),
+        phone: document.getElementById('custPhone').value.trim(),
+        carMake: document.getElementById('custMake').value.trim(),
+        carModel: document.getElementById('custModel').value.trim(),
+        year: Number(document.getElementById('custYear').value),
+        scheduledDate: new Date(document.getElementById('custDate').value).toISOString(),
+      };
+
+      btn.disabled = true;
+      btn.textContent = 'Processing...';
+
+      try {
+        const res = await fetch('/api/packages/book', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+
+        if (!res.ok) {
+          const msg = json.details ? json.details.map(d => d.message).join('\n') : (json.error || 'Failed');
+          throw new Error(msg);
+        }
+
+        closeModal();
+        alert(`Package Confirmed!\nTracking Code: ${json.booking.reference}\nTotal: $${json.booking.pricing.total.toFixed(2)}\nAn SMS confirmation has been logged for ${json.booking.customer.phone}.`);
+      } catch (err) {
+        errEl.textContent = err.message;
+        errEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Confirm Package Booking';
+      }
+    }
+  </script>
+</body>
+</html>
